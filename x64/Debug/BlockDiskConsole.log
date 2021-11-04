@@ -1,4 +1,3 @@
 ﻿  BlockDiskConsole.cpp
-C:\Users\JhonWingson\source\repos\BlockDiskConsole\BlockDiskConsole\BlockDiskConsole.cpp(65,37): warning C4838: Преобразование из "DWORD64" в "LONG" требует сужающего преобразования.
-C:\Users\JhonWingson\source\repos\BlockDiskConsole\BlockDiskConsole\BlockDiskConsole.cpp(63,9): warning C4101: count: неиспользованная локальная переменная
+C:\Users\JhonWingson\source\repos\BlockDiskConsole\BlockDiskConsole\BlockDiskConsole.cpp(83,39): warning C4838: Преобразование из "DWORD64" в "LONG" требует сужающего преобразования.
   BlockDiskConsole.vcxproj -> C:\Users\JhonWingson\source\repos\BlockDiskConsole\x64\Debug\BlockDiskConsole.exe
