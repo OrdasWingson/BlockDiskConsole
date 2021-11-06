@@ -1,7 +1,8 @@
 ﻿  BlockDiskConsole.cpp
+C:\Users\JhonWingson\source\repos\BlockDiskConsole\BlockDiskConsole\BlockDiskConsole.cpp(82,39): warning C4838: Преобразование из "DWORD64" в "LONG" требует сужающего преобразования.
   Создание кода
+  86 of 197 functions (43.7%) were compiled, the rest were copied from previous compilation.
+    13 functions were new in current compilation
+    25 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
-  2 of 186 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
   BlockDiskConsole.vcxproj -> C:\Users\JhonWingson\source\repos\BlockDiskConsole\x64\Release\BlockDiskConsole.exe

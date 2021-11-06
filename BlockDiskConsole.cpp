@@ -23,7 +23,6 @@ void umount(HANDLE hDisk)
     {
         DWORD err = GetLastError();
     }
-    cout << "UNMOUNT" << endl;
 }
 
 DWORD64 getVolumeSize(BYTE* buf)
@@ -36,7 +35,7 @@ DWORD64 getVolumeSize(BYTE* buf)
 
 DWORD64 firs_sector_handl(BYTE* buf, bool what)
 {
-    DWORD64 sz;
+    DWORD64 sz = -1;
     string fsName = "";
     for (int i = 3; i < 7; i++)
     {
@@ -94,7 +93,7 @@ void show_device()
     char drivers[256];
     GetLogicalDriveStrings((DWORD)sizeof(drivers), (LPWSTR)drivers);
     int k = GetLastError();
-    cout << "Discs on computer: ";
+    cout << "Discs in computer: ";
     for (int i = 0; i < sizeof(drivers); i++)
     {
         
@@ -126,4 +125,6 @@ int main()
     DeviceIoControl(hDisk, FSCTL_ALLOW_EXTENDED_DASD_IO, NULL, 0, NULL, 0, &dwBytesRead, NULL);
     block(hDisk, valueName, what);
     ::CloseHandle(hDisk);
+    cout << "DONE!\n";
+    system("pause");
 }
