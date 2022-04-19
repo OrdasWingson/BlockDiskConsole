@@ -22,6 +22,7 @@ void umount(HANDLE hDisk)
         NULL, 0, NULL, 0, &status, NULL))
     {
         DWORD err = GetLastError();
+        cout << "ERORR OCUREDR - " << err << "\n";
     }
 }
 
@@ -74,20 +75,18 @@ void block(HANDLE hVolume, wstring valueName, bool what)
     DWORD dwRead;    
     SetFilePointer(hVolume, 0, NULL, FILE_BEGIN);
     if (!::ReadFile(hVolume, buf, sizeof(buf), &dwRead, NULL) || dwRead != sizeof(buf)) throw win_error("Can't read a volume.");
-   
-    int r = sizeof(buf);
-    int g = 45;
     SetFilePointer(hVolume, 0, NULL, FILE_BEGIN);
     DWORD64 sz = firs_sector_handl(buf, what);
     LARGE_INTEGER li = { (DWORD)sz,sz >> 32 };
-    if (!::WriteFile(hVolume, buf, sizeof(buf), &dwRead, NULL))  throw win_error("Can't write a volume.");
     umount(hVolume);
+    if (!::WriteFile(hVolume, buf, sizeof(buf), &dwRead, NULL))  throw win_error("Can't write a volume.");
     SetFilePointer(hVolume, li.LowPart, &li.HighPart, FILE_BEGIN);
     if (!::ReadFile(hVolume, buf, sizeof(buf), &dwRead, NULL) || dwRead != sizeof(buf)) throw win_error("Can't read a volume.");
     SetFilePointer(hVolume, li.LowPart, &li.HighPart, FILE_BEGIN);
     firs_sector_handl(buf, what);
     if (!::WriteFile(hVolume, buf, sizeof(buf), &dwRead, NULL))  throw win_error("Can't write a volume.");
 }
+
 void show_device()
 {
     char drivers[256];
